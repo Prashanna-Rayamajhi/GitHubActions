@@ -17,8 +17,8 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Restore Dependencies
-        run: dotnet restore  .\PracticeWebAPI\PracticeWebAPI.sln
+        run: dotnet restore  
 
       - name: Build App
-        run: dotnet build -c release --no-restore .\PracticeWebAPI\ 
+        run: dotnet build -c release --no-restore 
 
