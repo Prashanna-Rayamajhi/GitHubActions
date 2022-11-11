@@ -1,0 +1,24 @@
+name: Continious Integration and Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  build:  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: SetUp .NET  
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore Dependencies
+        run: dotnet restore .\PracticeWebAPI\
+
+      - name: Build App
+        run: dotnet build -c release --no-restore .\PracticeWebAPI\ 
+
